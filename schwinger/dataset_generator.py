@@ -9,20 +9,15 @@ def generator(n,p):
     '''
 
     vec = np.zeros(2*n)
-    #print(vec)
-
     fermions = np.random.choice(range(n),p, replace=False)
-    #print(fermions)
-
     antifermions = np.random.choice(range(n),p,replace=False)
-    #print(antifermions)
 
     for i in range(p): 
         vec[2*fermions[i]]=1
         vec[2*antifermions[i]+1]=1
     return vec
 
-def Dealtal_calculation (v):
+def Deltal_calculation (v):
 
     '''
     given an occupancy configuration v 
@@ -38,10 +33,7 @@ def Dealtal_calculation (v):
     #AUXILIARY VARIABLES
     l = [0]
     n = len(v)
-
     for i in range(0, n):
         l.append(l[i]+ v[i]*(-1)**i)
-
     Deltal = max(l)-min(l)
-
     return Deltal
